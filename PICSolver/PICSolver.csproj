@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EEF10D6E-2FDD-4386-B571-1EF297BB651F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PICSolver</RootNamespace>
+    <AssemblyName>PICSolver</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Extreme.Generic.Net40, Version=5.1.14261.0, Culture=neutral, PublicKeyToken=9e513770f58567b2, processorArchitecture=MSIL" />
+    <Reference Include="Extreme.Numerics.Net40, Version=5.1.14287.0, Culture=neutral, PublicKeyToken=9e513770f58567b2, processorArchitecture=MSIL" />
+    <Reference Include="MathNet.Numerics, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.11.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics.Data.Matlab, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.Data.Matlab.3.2.0\lib\net40\MathNet.Numerics.Data.Matlab.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics.Data.Text, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.Data.Text.3.2.0\lib\net40\MathNet.Numerics.Data.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NMath, Version=6.2.0.4, Culture=neutral, PublicKeyToken=873235918a322639, processorArchitecture=MSIL" />
+    <Reference Include="NMathChartMicrosoft, Version=6.2.0.4, Culture=neutral, PublicKeyToken=873235918a322639, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IEmitter.cs" />
+    <Compile Include="Abstract\IFieldSolver.cs" />
+    <Compile Include="Abstract\IInterpolationScheme.cs" />
+    <Compile Include="Abstract\IMesh.cs" />
+    <Compile Include="Abstract\IMover.cs" />
+    <Compile Include="Abstract\IGrid2D.cs" />
+    <Compile Include="Abstract\IParticle.cs" />
+    <Compile Include="Abstract\IParticleStorage.cs" />
+    <Compile Include="Abstract\IPICSolver.cs" />
+    <Compile Include="ElectricField\Gradient.cs" />
+    <Compile Include="Extensions\ArrayExtension.cs" />
+    <Compile Include="Extensions\Index.cs" />
+    <Compile Include="Extensions\LineHelpers.cs" />
+    <Compile Include="FFTW\Interop.cs" />
+    <Compile Include="FFTW\Managed.cs" />
+    <Compile Include="Filters\Convolution.cs" />
+    <Compile Include="Extensions\DictionaryExtension.cs" />
+    <Compile Include="Extensions\EmguCVExtension.cs" />
+    <Compile Include="Extensions\IEnumerableExtension.cs" />
+    <Compile Include="Filters\ConvolutionFilters.cs" />
+    <Compile Include="Filters\DensitySmoothing.cs" />
+    <Compile Include="Filters\FourierFilter.cs" />
+    <Compile Include="Filters\IConvolutionFilter.cs" />
+    <Compile Include="Filters\Median.cs" />
+    <Compile Include="Filters\SmoothSpline.cs" />
+    <Compile Include="Interpolation\CloudInCellIterative.cs" />
+    <Compile Include="Interpolation\CloudInCell.cs" />
+    <Compile Include="Domain\Constants.cs" />
+    <Compile Include="Emitter\Emitter2D.cs" />
+    <Compile Include="Grid\Grid2D.cs" />
+    <Compile Include="Domain\Particle.cs" />
+    <Compile Include="IterativeSolver2D.cs" />
+    <Compile Include="Monitor\PICPlot.cs" />
+    <Compile Include="Poisson\BiCgStab.cs" />
+    <Compile Include="Poisson\IIterativeSolver.cs" />
+    <Compile Include="Poisson\IPreconditioner.cs" />
+    <Compile Include="Poisson\MILU0Preconditioner.cs" />
+    <Compile Include="Project\PICProject.cs" />
+    <Compile Include="PICTest.cs" />
+    <Compile Include="Mesh\Mesh2d.cs" />
+    <Compile Include="Mover\Leapfrog.cs" />
+    <Compile Include="Monitor\PICMonitor.cs" />
+    <Compile Include="Storage\ObjectPool.cs" />
+    <Compile Include="Storage\Field.cs" />
+    <Compile Include="Storage\ParticleArrayStorageModified.cs" />
+    <Compile Include="PICSolver2d.cs" />
+    <Compile Include="Poisson\BoundaryConditions.cs" />
+    <Compile Include="Poisson\Poisson2dFdmSolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cvextern.dll" />
+    <Content Include="libfftw3-3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libfftw3f-3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\libgcc_s_seh-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\libgfortran-3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\libiomp5md.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\libopenblas.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\libquadmath-0.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\MathNet.Numerics.MKL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\MathNet.Numerics.OpenBLAS.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\opencv_ffmpeg310_64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MathNet.Numerics.MKL.Win-x64.2.0.0\build\MathNet.Numerics.MKL.Win-x64.targets" Condition="Exists('..\packages\MathNet.Numerics.MKL.Win-x64.2.0.0\build\MathNet.Numerics.MKL.Win-x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MathNet.Numerics.MKL.Win-x64.2.0.0\build\MathNet.Numerics.MKL.Win-x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MathNet.Numerics.MKL.Win-x64.2.0.0\build\MathNet.Numerics.MKL.Win-x64.targets'))" />
+    <Error Condition="!Exists('..\packages\MathNet.Numerics.MKL.Win-x86.2.0.0\build\MathNet.Numerics.MKL.Win-x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MathNet.Numerics.MKL.Win-x86.2.0.0\build\MathNet.Numerics.MKL.Win-x86.targets'))" />
+    <Error Condition="!Exists('..\packages\MathNet.Numerics.OpenBLAS.Win.0.2.0\build\MathNet.Numerics.OpenBLAS.Win.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MathNet.Numerics.OpenBLAS.Win.0.2.0\build\MathNet.Numerics.OpenBLAS.Win.targets'))" />
+  </Target>
+  <Import Project="..\packages\MathNet.Numerics.MKL.Win-x86.2.0.0\build\MathNet.Numerics.MKL.Win-x86.targets" Condition="Exists('..\packages\MathNet.Numerics.MKL.Win-x86.2.0.0\build\MathNet.Numerics.MKL.Win-x86.targets')" />
+  <Import Project="..\packages\MathNet.Numerics.OpenBLAS.Win.0.2.0\build\MathNet.Numerics.OpenBLAS.Win.targets" Condition="Exists('..\packages\MathNet.Numerics.OpenBLAS.Win.0.2.0\build\MathNet.Numerics.OpenBLAS.Win.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
